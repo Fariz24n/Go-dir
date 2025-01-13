@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:17
+    container_name: Apalah
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "secret"
+      POSTGRES_DB: "apalah"
+    volumes:
+      - "D:/PgAdmin/Postgres-data:/var/lib/postgresql/data"
+    ports:
+      - "5432:5432"
+
+  pgadmin:
+      image: dpage/pgadmin4
+      container_name: pgadmin_container
+      environment:
+        PGADMIN_DEFAULT_EMAIL: "arnius24n@gmail.com"
+        PGADMIN_DEFAULT_PASSWORD: "secret"
+      ports:
+        - "5050:80" 
+
+volumes:
+  postgres_data:
